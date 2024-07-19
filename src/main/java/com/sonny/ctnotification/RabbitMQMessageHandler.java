@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 public class RabbitMQMessageHandler {
 
     @RabbitListener(queues = "notification.send")
+    @RabbitListener(queues = "${notification.queue}")
     public void lireMessage(Compte message){
         log.info("Nouveau message {}", message);
     }
